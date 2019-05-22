@@ -1,2 +1,2 @@
 # vahalik.cz
-Private page
+Private home-page
