@@ -1,5 +1,11 @@
 {
- "name": "App",
+ "name": "Vahalík.cz",
+ "author": "Tomáš Vahalík",
+ "background_color": "#282c34",
+ "theme_color": "#282c34",
+ "display": "minimal-ui",
+ "short_name": "Vahalík.cz",
+ "start_url": "https://vahalik.cz",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
