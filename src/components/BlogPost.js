@@ -1,7 +1,7 @@
 import * as React from "react";
 import BlogItem from "./BlogItem";
 import Loading from "./Loading";
-import useContentful from "./useContentful";
+import useContentful from "../hooks/useContentful";
 
 /**
  * @return {string}

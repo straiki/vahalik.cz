@@ -1,17 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./css/index.css";
+
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
 // Performance analysis
-// import whyDidYouRender from "@welldone-software/why-did-you-render";
-//
-// whyDidYouRender(React, {
-//   onlyLogs: true,
-//   titleColor: "green",
-//   diffNameColor: "aqua"
-// });
+import whyDidYouRender from "@welldone-software/why-did-you-render";
+
+whyDidYouRender(React, {
+  onlyLogs: false,
+  titleColor: "green",
+  diffNameColor: "aqua"
+});
 
 ReactDOM.render(<App />, document.getElementById("root"));
 
