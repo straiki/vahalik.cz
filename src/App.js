@@ -1,49 +1,37 @@
-import React, { Fragment } from "react";
+import React from "react";
 
-import IndexPage from "./components/IndexPage";
-import Blog from "./components/Blog";
+import Home from "./home/Home";
+import Blog from "./blog/Blog";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import BlogPost from "./components/BlogPost";
-import Layout from "./components/Layout";
-import Footer from "./components/Footer";
-
-import { GlobalStyle } from "./css/GlobalStyle";
-import * as MyComponents from "./css/StyledComponents";
+import BlogPost from "./blog/BlogPost";
+import Layout from "./layout/Layout";
 
 function App() {
   return (
-    <Fragment>
-      <GlobalStyle />
-      <MyComponents.CenterTextDiv>
-        <MyComponents.MainContent>
-          <Router>
-            <Switch>
-              <Route path="/" exact component={IndexPage} />
-              <Route
-                path={"/blog/"}
-                render={props => {
-                  return (
-                    <Layout>
-                      <Blog {...props} />
-                    </Layout>
-                  );
-                }}
-              />
-              <Route
-                path={"/:slug"}
-                render={props => (
-                  <Layout>
-                    <BlogPost {...props} />
-                  </Layout>
-                )}
-              />
-            </Switch>
-          </Router>
-        </MyComponents.MainContent>
-        <Footer />
-      </MyComponents.CenterTextDiv>
-    </Fragment>
+    <Router>
+      <Switch>
+        <Route
+          path="/"
+          exact
+          render={props => {
+            return <Layout component={Home} {...props} />;
+          }}
+        />
+        <Route
+          path={"/blog/"}
+          render={props => {
+            return <Layout component={Blog} withNavigation {...props} />;
+          }}
+        />
+        <Route
+          path={"/:slug"}
+          render={props => (
+            <Layout component={BlogPost} withNavigation {...props} />
+          )}
+        />
+      </Switch>
+    </Router>
   );
 }
 

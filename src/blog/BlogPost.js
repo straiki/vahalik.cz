@@ -1,6 +1,6 @@
 import * as React from "react";
 import BlogItem from "./BlogItem";
-import Loading from "./Loading";
+import Loading from "../components/Loading";
 import useContentful from "../hooks/useContentful";
 import { Redirect } from "react-router-dom";
 

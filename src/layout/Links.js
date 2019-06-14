@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { TopMenu, TopMenuItem } from "../css/StyledComponents";
+import { TopMenu, TopMenuItem } from "../styledComponents/StyledComponents";
 
 const activeClassName = "active";
 const links = [{ to: "/blog", title: "Blog" }];

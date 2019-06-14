@@ -6,7 +6,11 @@ import email from "../img/envelope-regular.svg";
 
 import { Link } from "react-router-dom";
 
-import { StyledIcon, StyledLink, CircularImg } from "../css/StyledComponents";
+import {
+  CircularImg,
+  StyledIcon,
+  StyledLink
+} from "../styledComponents/StyledComponents";
 
 export default function IndexPage() {
   return (

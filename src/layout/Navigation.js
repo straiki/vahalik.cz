@@ -3,7 +3,11 @@ import avatar from "../img/avatar_op.png";
 import { Link } from "react-router-dom";
 import Links from "./Links";
 
-import { CircularImg, HeaderItem, StyledHeader } from "../css/StyledComponents";
+import {
+  CircularImg,
+  HeaderItem,
+  StyledHeader
+} from "../styledComponents/StyledComponents";
 
 function SmallHeader() {
   return (

@@ -9,15 +9,12 @@ export const MainContent = styled.div`
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  text-align: center;
 `;
 
 export const StyledLink = styled.a`
   color: yellowgreen;
   text-decoration: none;
-`;
-
-export const CenterTextDiv = styled.div`
-  text-align: center;
 `;
 
 const pulse = keyframes`
@@ -73,6 +70,7 @@ export const CircularImg = styled.img`
 `;
 
 export const StyledFooter = styled.footer`
+  text-align: center;
   height: 20px;
   padding: 10px;
   background-color: #13151d;

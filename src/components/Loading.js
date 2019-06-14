@@ -1,5 +1,6 @@
 import * as React from "react";
+import Loader from "../styledComponents/Loader";
 
-const Loading = () => <div>Loading...</div>;
+const Loading = () => <Loader />;
 
 export default Loading;
