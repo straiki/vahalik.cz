@@ -12,13 +12,16 @@ function useContentful(slug) {
   useEffect(
     () => {
       client.getEntries().then(entries => {
-        setPosts(
-          entries.items
-            .filter(item => !slug || item.fields.slug === slug)
-            .map(item => {
-              return { ...item.fields, id: item.sys.id };
-            })
-        );
+        const result = entries.items
+          .filter(item => !slug || item.fields.slug === slug)
+          .map(item => {
+            return { ...item.fields, id: item.sys.id };
+          });
+        if (result.length) {
+          setPosts(result);
+        } else {
+          setPosts(null);
+        }
       });
     },
     [slug]
