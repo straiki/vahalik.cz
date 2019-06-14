@@ -58,6 +58,13 @@ export const StyledHeader = styled.header`
 
 export const HeaderItem = styled.span`
   padding-left: 20px;
+
+  > a,
+  img {
+    display: block;
+    width: 65px;
+    height: 65px;
+  }
 `;
 
 export const CircularImg = styled.img`
@@ -73,5 +80,19 @@ export const StyledFooter = styled.footer`
   > a {
     text-decoration: none;
     color: inherit;
+  }
+`;
+
+export const TopMenu = styled.ul`
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  > li {
+    display: inline;
+    float: left;
+    > a.active {
+      text-decoration: underline;
+    }
   }
 `;

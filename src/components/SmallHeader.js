@@ -9,7 +9,7 @@ function SmallHeader() {
   return (
     <StyledHeader>
       <HeaderItem>
-        <Link to={"/"}>
+        <Link to={"/"} title={"Home"}>
           <CircularImg src={avatar} className="App-logo" alt="logo" />{" "}
         </Link>
       </HeaderItem>

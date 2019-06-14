@@ -32,7 +32,11 @@ function App() {
               />
               <Route
                 path={"/:slug"}
-                render={props => <BlogPost {...props} />}
+                render={props => (
+                  <Layout>
+                    <BlogPost {...props} />
+                  </Layout>
+                )}
               />
             </Switch>
           </Router>

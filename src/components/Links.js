@@ -1,9 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { TopMenu } from "../css/StyledComponents";
 
 export default function Links() {
   return (
-    <ul>
+    <TopMenu>
       <li>
         <NavLink to={"/blog"} activeClassName={"active"}>
           Blog
@@ -14,6 +15,6 @@ export default function Links() {
       {/*    Blog*/}
       {/*  </NavLink>*/}
       {/*</li>*/}
-    </ul>
+    </TopMenu>
   );
 }
