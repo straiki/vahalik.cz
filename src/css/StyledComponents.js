@@ -87,12 +87,12 @@ export const TopMenu = styled.ul`
   list-style-type: none;
   margin: 0;
   padding: 0;
+`;
 
-  > li {
-    display: inline;
-    float: left;
-    > a.active {
-      text-decoration: underline;
-    }
+export const TopMenuItem = styled.li`
+  display: inline;
+  float: left;
+  > a.active {
+    text-decoration: underline;
   }
 `;

@@ -1,20 +1,22 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { TopMenu } from "../css/StyledComponents";
+import { TopMenu, TopMenuItem } from "../css/StyledComponents";
+
+const activeClassName = "active";
+const links = [{ to: "/blog", title: "Blog" }];
 
 export default function Links() {
   return (
     <TopMenu>
-      <li>
-        <NavLink to={"/blog"} activeClassName={"active"}>
-          Blog
-        </NavLink>
-      </li>
-      {/*<li>*/}
-      {/*  <NavLink to={"/blog"} activeClassName={"active"}>*/}
-      {/*    Blog*/}
-      {/*  </NavLink>*/}
-      {/*</li>*/}
+      {links.map((item, index) => {
+        return (
+          <TopMenuItem key={index}>
+            <NavLink to={item.to} activeClassName={activeClassName}>
+              {item.title}
+            </NavLink>
+          </TopMenuItem>
+        );
+      })}
     </TopMenu>
   );
 }
