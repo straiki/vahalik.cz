@@ -1,9 +1,7 @@
 import * as ContentfulApi from "contentful";
 
-export const SET_SLUG = "SET_SLUG";
 export const SET_POSTS = "SET_POSTS";
 
-export const setSlug = slug => ({ type: SET_SLUG, slug });
 export const setPosts = posts => ({ type: SET_POSTS, posts });
 
 const client = ContentfulApi.createClient({

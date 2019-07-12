@@ -1,8 +1,13 @@
 import React from "react";
 import { Link, Redirect } from "react-router-dom";
 import Loading from "../components/Loading";
+import { getBlogPosts, useShallowEqualSelector } from "../store/selectors";
 
-function Blog({ posts }) {
+function Blog({ match: params }) {
+  const posts = useShallowEqualSelector(state =>
+    getBlogPosts(state, params.slug)
+  );
+
   return posts ? (
     posts.length ? (
       <div>
