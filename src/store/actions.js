@@ -1,8 +1,11 @@
 import * as ContentfulApi from "contentful";
-
-export const SET_POSTS = "SET_POSTS";
+import { SET_IS_FETCHING, SET_POSTS, UPDATE_DELTA } from "./constants";
 
 export const setPosts = posts => ({ type: SET_POSTS, posts });
+export const setIsFetching = isFetching => ({
+  type: SET_IS_FETCHING,
+  isFetching
+});
 
 const client = ContentfulApi.createClient({
   accessToken: "D4OTmAC0fgNvE82bW5PseaRt-HewN7m0D_YHYv_qfAM",
@@ -10,21 +13,24 @@ const client = ContentfulApi.createClient({
 });
 
 export const fetchPostsIfNeeded = () => {
-  return (dispatch, getState) => {
-    const { posts } = getState();
+  return async (dispatch, getState) => {
+    const { posts, isFetching, lastUpdate } = getState();
+    const now = new Date().valueOf();
 
-    // noinspection SuspiciousTypeOfGuard
-    if (!posts.length && posts !== null) {
-      client.getEntries().then(entries => {
-        const result = entries.items.map(item => {
-          return { ...item.fields, id: item.sys.id };
-        });
-        if (result.length) {
-          dispatch(setPosts(result));
-        } else {
-          dispatch(setPosts(null));
-        }
+    if ((!posts.length || now - lastUpdate >= UPDATE_DELTA) && !isFetching) {
+      dispatch(setIsFetching(true));
+
+      const entries = await client.getEntries();
+
+      const result = entries.items.map(item => {
+        return { ...item.fields, id: item.sys.id };
       });
+      if (result.length) {
+        dispatch(setPosts(result));
+      } else {
+        dispatch(setPosts(null));
+      }
+      dispatch(setIsFetching(false));
     }
   };
 };

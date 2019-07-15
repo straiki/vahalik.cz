@@ -5,15 +5,18 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Layout from "./layout/Layout";
 
 import { fetchPostsIfNeeded } from "./store/actions";
-import { connect, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import Blog from "./blog/Blog";
 import BlogPost from "./blog/BlogPost";
 
 function App() {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchPostsIfNeeded());
-  }, []);
+  useEffect(
+    () => {
+      dispatch(fetchPostsIfNeeded());
+    },
+    [dispatch]
+  );
 
   return (
     <Router>
@@ -42,4 +45,4 @@ function App() {
   );
 }
 
-export default connect()(App);
+export default App;
